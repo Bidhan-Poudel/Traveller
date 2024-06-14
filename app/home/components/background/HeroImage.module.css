@@ -1,0 +1,64 @@
+.wrapper {
+  /* position: relative; */
+  /* padding-top: rem(180px); */
+  background-image: url(https://modmixmap.travelerwp.com/wp-content/uploads/2022/06/bannermix-min.png);
+  background-size: cover;
+  height: 68vh;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    /* padding-top: rem(100px);
+    padding-bottom: rem(0px); */
+    /* height: 70vh; */
+  }
+}
+
+@media(max-width: 480px) {
+  .wrapper {
+    /* padding-top: rem(100px);
+    padding-bottom: rem(0px); */
+    height: 60vh;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.title {
+  padding-left: var(--mantine-spacing-md);
+  padding-right: var(--mantine-spacing-md);
+  color: var(--mantine-color-white);
+  margin-bottom: var(--mantine-spacing-xs);
+  text-align: center;
+}
+
+@media (max-width: var(--mantine-breakpoint-xs)) {
+  .title {
+    font-size: rem(28px);
+  }
+}
+
+
+.highlight {
+  color: var(--mantine-color-primary-4);
+}
+
+.description {
+  color: var(--mantine-color-gray-0);
+  text-align: center;
+}
+
+@media (max-width: var(--mantine-breakpoint-xs)) {
+  .description {
+    font-size: var(--mantine-font-size-md);
+    text-align: left;
+  }
+}

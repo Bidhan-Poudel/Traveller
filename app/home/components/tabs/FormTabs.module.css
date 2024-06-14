@@ -1,0 +1,16 @@
+.tabs {
+    z-index: 1;
+    width: 100%;
+}
+
+.tab:hover{
+    background-color: blue;
+}
+
+.mantine-Tabs-list {
+    border-bottom: 2px;
+}
+
+
+
+

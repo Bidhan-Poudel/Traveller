@@ -1,0 +1,13 @@
+.textInput {
+    &::placeholder {
+        color: #5E6D77;
+    }
+}
+
+.textArea {
+    height: 200px;
+
+    &::placeholder {
+        color: #5E6D77;
+    }
+}

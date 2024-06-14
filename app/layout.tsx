@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { MantineProvider } from "@mantine/core";
+import { DM_Sans } from "@next/font/google";
+import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
+import "@mantine/dates/styles.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+// Load the DM Sans font
+const dmSans = DM_Sans({
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: 'swap',
+});
+
+const theme = {
+  fontFamily: dmSans.style.fontFamily,
+};
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={dmSans.className}>
+      <body>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
