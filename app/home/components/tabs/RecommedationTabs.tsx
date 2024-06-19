@@ -30,7 +30,7 @@ export const RecommedationTabs = () => {
         <TourCard />
       </Tabs.Panel>
       <Tabs.Panel value="Hotel">
-        <HotelCardContainer />
+        <HotelCardContainer size={"xl"} view="vertical" />
       </Tabs.Panel>
     </Tabs>
   );

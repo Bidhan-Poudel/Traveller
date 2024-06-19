@@ -28,20 +28,29 @@
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @media (max-width: 1160px) {
     flex-direction: column;
     align-items: center;
   }
 }
 
-.groups {
+.contactLink {
   width: rem(260px);
   flex-wrap: wrap;
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @media (max-width: 1160px) {
     display: none;
   }
 }
+
+.serviceLink{
+  width:rem(260px);
+  flex-wrap: wrap;
+  @media (max-width:1160px) {
+    display: none;
+  }
+}
+
 
 .wrapper {
   width: rem(220px);

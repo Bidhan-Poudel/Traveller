@@ -20,7 +20,7 @@ const ExploreOptions = () => {
       >
         {hotels.map((data) => (
           <Carousel.Slide key={data.id}>
-            <HotelCard hotel={data}/>
+            <HotelCard hotel={data} size={200}/>
           </Carousel.Slide>
         ))}
       </Carousel>

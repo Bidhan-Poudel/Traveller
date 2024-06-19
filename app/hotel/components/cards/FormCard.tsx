@@ -15,42 +15,31 @@ import React from "react";
 import CustomBotton from "../buttons/Buttons";
 import { IconCurrencyEuro, IconStarFilled } from "@tabler/icons-react";
 import { DatePickerInput } from "@mantine/dates";
+import { useMediaQuery } from "@mantine/hooks";
+import { useForm } from "@mantine/form";
+import { DatePicker, Guests } from "@/app/home/components";
 
 export const FormCard = () => {
-  const leftSection = (
-    <Stack gap="xs" p={0} w={"100%"} align="center">
-      <Text p={0} fw={"500"} c={"black"}>
-        Check In
-      </Text>
-      <Text p={0} c={"#5E6D77"}>
-        14/06/2024
-      </Text>
-    </Stack>
-  );
-
-  const rightSection = (
-    <Stack
-      gap={"xs"}
-      p={0}
-      w={"100%"}
-      align="center"
-      style={{ borderLeft: "1px solid #ccc" }}
-    >
-      <Text p={0} fw={"500"} c={"black"}>
-        Check Out
-      </Text>
-      <Text p={0} c={"#5E6D77"}>
-        15/06/2024
-      </Text>
-    </Stack>
-  );
+  const form = useForm({
+    initialValues: {
+      checkInDate: null,
+      checkOutDate: null,
+      children: 1,
+      rooms: 1,
+      adults: 1,
+    },
+  });
+  const isSmall = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Card shadow="xs" padding="xl" radius="md" withBorder>
-      <Group justify="center" mb={"xl"}>
-        <CustomBotton onClick={() => {}}>Book Now</CustomBotton>
-      </Group>
-      <Grid mb={"xl"}>
+    <Card shadow="lg" padding="xl" radius="xl" withBorder>
+      {/* <Group justify="center" mb={"xl"}> */}
+      {/* <CustomBotton onClick={() => {}}>Book Now</CustomBotton> */}
+      {/* </Group> */}
+      <Title ta={"center"} fz={"h3"}>
+        Book Now
+      </Title>
+      <Grid my={"xl"}>
         <Grid.Col span={6}>
           <Group gap={3}>
             <Text c={"#5E6D77"} fz={"sm"}>
@@ -72,37 +61,28 @@ export const FormCard = () => {
           </Group>
         </Grid.Col>
       </Grid>
-      <Paper radius="xl" withBorder>
-        <Input
-          label="lest test"
-          leftSection={leftSection}
-          rightSection={rightSection}
-          component={DatePickerInput}
-          rightSectionWidth={"50%"}
-          leftSectionWidth={"50%"}
-          variant="white"
-          size="xl"
-          p={"md"}
-        >
-          {/* <DatePickerInput
-          variant="unstyled"
-          size="md"
-          radius={"md"}
-          type="range"
-          numberOfColumns={2}
-          minDate={new Date()}
-          value={[new Date(), new Date()]}
-          onChange={(dates) => {
-            if (dates) {
-              console.log(dates);
-            }
-          }}
-          // opacity={0}
-        >
-        </DatePickerInput> */}
-        </Input>
-        <Divider />
-      </Paper>
+      {/* <Divider my="lg" /> */}
+      {/* <DatePickerInput
+        placeholder="Check In and CheckOut Date"
+        size="md"
+        radius={"md"}
+        variant="unstyled"
+        type="range"
+        minDate={new Date()}
+        value={[form.values.checkInDate, form.values.checkOutDate]}
+        numberOfColumns={isSmall ? 1 : 2}
+        onChange={(dates) => {
+          if (dates) {
+            form.setFieldValue("checkInDate", dates[0]);
+            form.setFieldValue("checkOutDate", dates[1]);
+          }
+        }}
+      /> */}
+      <DatePicker form={form} />
+      <Divider my="lg" />
+      <Guests form={form} />
+      <Text mb={"xl"}></Text>
+      <CustomBotton onClick={() => {}}>Check availability</CustomBotton>
     </Card>
   );
 };

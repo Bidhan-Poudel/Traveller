@@ -20,7 +20,7 @@ export const Guests: React.FC<HotelFormInputProps> = ({ form }) => {
   };
 
   return (
-    <Group gap={0} flex={"start"}>
+    <Group gap={0}  className={classes.menu} w={"100%"}>
       <IconUser size={24} color="#5E6D77" stroke={1.5} />
       <Menu >
         <Menu.Target>

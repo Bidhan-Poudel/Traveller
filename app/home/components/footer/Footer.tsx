@@ -15,7 +15,7 @@ import {
 } from "@/app/home/mock/footers";
 
 export const Footer = () => {
-  const socialLink = serviceLinks.map((group) => {
+  const serviceLink = serviceLinks.map((group) => {
     const links = group.links.map((link, index) => (
       <Text<"a">
         fz={"md"}
@@ -37,7 +37,7 @@ export const Footer = () => {
     );
   });
 
-  const groups = contactLinks.map((group) => {
+  const contactLink = contactLinks.map((group) => {
     const links = group.links.map((link, index) => (
       <Text<"a">
         fz="md"
@@ -61,7 +61,7 @@ export const Footer = () => {
 
   return (
     <footer className={classes.footer}>
-      <Container className={classes.inner} size={"xl"} mt={"lg"} mb={0} p="0">
+      <Container className={classes.inner} size={"xl"} mt={"lg"} mb={0} px={{md:"lg"}}>
         <div className={classes.logo}>
           <Title order={1} className={classes.title} fz={"36"} c={"#ac77ef"}>
             SuYatra
@@ -80,8 +80,8 @@ export const Footer = () => {
           </Group>
         </div>
         <Group align="start">
-          <div className={classes.groups}>{socialLink}</div>
-          <div className={classes.groups}>{groups}</div>
+          <div className={classes.serviceLink}>{serviceLink}</div>
+          <div className={classes.contactLink}>{contactLink}</div>
         </Group>
       </Container>
       <Container className={classes.afterFooter} size={"xl"} py={"sm"}>

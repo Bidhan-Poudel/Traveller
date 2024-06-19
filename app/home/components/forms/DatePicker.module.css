@@ -1,5 +1,12 @@
 .datePicker {
-    @media screen and (max-width: 1000px)  {
-        width: 100%;
+
+    &::placeholder {
+        color: #5E6D77;
+    }
+}
+
+.group {
+    @media screen and (max-width: 1000px) {
+        margin-top: 2rem;
     }
 }

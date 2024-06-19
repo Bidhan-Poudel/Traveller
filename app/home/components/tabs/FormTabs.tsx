@@ -23,7 +23,7 @@ export const FormTabs = () => {
             Tours
           </Tabs.Tab>
         </Tabs.List>
-        <Tabs.Panel value="Hotel" mt={"20"}>
+        <Tabs.Panel value="Hotel" mt={"20"} >
           <HotelForm />
         </Tabs.Panel>
         <Tabs.Panel value="Tours" mt={"20"}>

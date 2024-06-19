@@ -33,9 +33,9 @@ export const HotelForm = () => {
   };
 
   return (
-    <Container className={classes.form} bg={"white"} size='lg'>
+    <Container className={classes.form} bg={"white"} size="lg">
       <form onSubmit={hotelForm.onSubmit(handleSubmit)}>
-        <Grid px={32} py={16}>
+        <Grid px={{ base: 16, md: 32 }} py={16}>
           <Grid.Col span={{ md: 3, xs: 12 }} py={0}>
             <SearchAutoComplete form={hotelForm} />
           </Grid.Col>
@@ -51,11 +51,12 @@ export const HotelForm = () => {
               type="submit"
               className={classes.button}
               size="xl"
-              // mt={6}
-              
+              onClick={() => {}}
             >
               <IconSearch size={16} />
-              <Text ml="xs" fz={"md"}>Search</Text>
+              <Text ml="xs" fz={"md"}>
+                Search
+              </Text>
             </Button>
           </Grid.Col>
         </Grid>
@@ -63,4 +64,3 @@ export const HotelForm = () => {
     </Container>
   );
 };
-

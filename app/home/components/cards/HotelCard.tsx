@@ -14,30 +14,46 @@ import React from "react";
 import classes from "./ArticleCard.module.css";
 import Link from "next/link";
 
-export const HotelCard = ({ hotel }) => {
+export const HotelCard = ({
+  hotel,
+  size,
+}: {
+  hotel: {
+    image: string;
+    name: string;
+    avatar: string;
+    noOfReviews: number;
+    reviews: string;
+    address: string;
+    rating: number;
+    price: number;
+  };
+  size: number;
+}) => {
   return (
     <Card withBorder p={"sm"} radius="lg" className={classes.card} m={2}>
-      <Card.Section mb="xs" pos={"relative"}>
+      <Card.Section mb="xs" pos={"relative"} className={classes.imageWrapper}>
         <IconHeart className={classes.heartIcon} color="white" />
         <Link href={`/hotel`}>
           <Image
             src={hotel.image}
             alt={hotel.name}
-            height={280}
+            height={size}
             pos={"relative"}
             className={classes.image}
           />
-          <Avatar
-            src={hotel.avatar}
-            radius="lg"
-            pos={"absolute"}
-            right={16}
-            bottom={-12}
-          />
+          
         </Link>
       </Card.Section>
 
       <Box pt={"lg"}>
+      <Avatar
+            src={hotel.avatar}
+            radius="lg"
+            pos={"absolute"}
+            right={16}
+            top={size===200?"40%":"50%"}
+          />
         <Rating value={hotel.rating} color={"orange"} readOnly size={"xs"} />
         <Text fw={700} mt="xs" lts={"20"} fz={20}>
           {hotel.name}

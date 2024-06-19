@@ -9,7 +9,7 @@ export const ImageActionBanner = () => {
   const isMedium = useMediaQuery("(max-width: 1024px)");
   return (
     <Container size="xl" p="sm" my={"xl"}>
-      <SimpleGrid cols={useMediaQuery("(max-width: 520px)") ? 1 : 2}>
+      <SimpleGrid cols={useMediaQuery("(max-width: 576px)") ? 1 : 2}>
         <Card
           className={classes.card}
           radius="xl"

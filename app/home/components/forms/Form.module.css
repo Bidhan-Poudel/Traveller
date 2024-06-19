@@ -1,40 +1,37 @@
 .form {
-    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.033);
-    @media screen and (min-width: 1000px) {
+
+    @media screen and (min-width: 992px) {
         border-radius: 4% / 50%;
         padding: 0;
     }
 
 }
 
+
+
 .group {
     /* width: 88%; */
     position: relative;
-    margin:10px 0;
+    margin: 10px 0;
     left: 3em;
     align-items: center;
-    @media screen and (max-width: 1000px) and (min-width: 600px) {
+
+    @media screen and (max-width: 992px) and (min-width: 576px) {
         width: calc(100% - 40px);
         /* Adding margin around x-axis */
         flex-direction: column;
         margin-left: 20px;
         margin-right: 20px;
-        left:0px;
+        left: 0px;
 
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 576px) {
         width: 100%;
         flex-direction: column;
         left: 0;
-    }
-}
-
-.button {
-    @media screen and (max-width: 1000px)  {
-        width: 100%;
     }
 }

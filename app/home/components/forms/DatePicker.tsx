@@ -7,17 +7,15 @@ import { Group } from "@mantine/core";
 import { IconCalendar } from "@tabler/icons-react";
 import { HotelFormInputProps } from "../../schema";
 
-
 export const DatePicker: React.FC<HotelFormInputProps> = ({ form }) => {
   const isSmall = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Group justify="center">
+    <Group justify="start" className={classes.group}>
       <IconCalendar size={24} color="#5E6D77" stroke={1.5} />
       <DatePickerInput
         label="Check In and Out Date"
         variant="unstyled"
-        aria-placeholder="Pick dates range"
         c={"black"}
         placeholder="Pick dates range"
         size="md"
@@ -37,4 +35,3 @@ export const DatePicker: React.FC<HotelFormInputProps> = ({ form }) => {
     </Group>
   );
 };
-

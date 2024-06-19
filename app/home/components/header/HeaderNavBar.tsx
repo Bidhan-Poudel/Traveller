@@ -9,9 +9,7 @@ import {
   Menu,
   Text,
   Drawer,
-  ScrollArea,
   Divider,
-  rem,
 } from "@mantine/core";
 
 import { MantineLogo } from "@mantinex/mantine-logo";
@@ -22,72 +20,20 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import classes from "./HeaderMegaMenu.module.css";
-import { links, currencies } from "../../mock/menu";
+import { links, currencies } from "../config";
 import Link from "next/link";
 import { useState } from "react";
 
-export const HeaderNavBar = () => {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-    useDisclosure(false);
-
-  const isMediumSize = useMediaQuery("(min-width: 992px)");
-  const isExtraSmallSize = useMediaQuery("(max-width: 576px)");
-
-  const [activeLink, setActiveLink] = useState(null);
-
-  const handleLinkClick = (link: any) => {
-    if (activeLink === link) {
-      setActiveLink(null);
-      if (links.find((items) => items.label === link).links) closeDrawer(); // Close the drawer if the link has no sublinks
-    } else {
-      setActiveLink(link); // Set the active link
-    }
-  };
-
-  const drawerItems = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Menu.Item
-        key={item.link}
-        className={classes.subLink}
-        onClick={() => closeDrawer()} // Close the drawer when a sublink is clicked
-      >
-        <Text size="md" lh={2} px={"sm"} pt={"sm"}>
-          {item.label}
-        </Text>
-      </Menu.Item>
-    ));
-
-    return (
-      <Menu key={link.label}>
-        <Link
-          href={"#"}
-          onClick={(event) => {
-            event.preventDefault();
-            handleLinkClick(link.label);
-          }}
-          className={classes.link}
-          style={{ textDecoration: "none" }}
-        >
-          <Text size="md" lh={2} px={"sm"} pt={"sm"}>
-            {link.label}
-            {link.links && <IconChevronDown size="0.9rem" stroke={1.5} />}
-          </Text>
-        </Link>
-        {activeLink === link.label && menuItems && <div>{menuItems}</div>}
-      </Menu>
-    );
-  });
-
-  const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
+const NavbarItems = ({ items }) => {
+  return items.map((link) => {
+    const subMenuItems = link.links?.map((item) => (
       <Menu.Item className={classes.subLink} key={item.link}>
         <Text size="md" lh={2} px={"sm"} pt={"sm"}>
           {item.label}
         </Text>
       </Menu.Item>
     ));
-
-    if (menuItems) {
+    if (subMenuItems) {
       return (
         <Menu
           key={link.label}
@@ -107,7 +53,7 @@ export const HeaderNavBar = () => {
               </Center>
             </a>
           </Menu.Target>
-          <Menu.Dropdown w={240}>{menuItems}</Menu.Dropdown>
+          <Menu.Dropdown w={240}>{subMenuItems}</Menu.Dropdown>
         </Menu>
       );
     }
@@ -122,12 +68,104 @@ export const HeaderNavBar = () => {
       </Link>
     );
   });
+};
 
-  const currencyItems = currencies.map((currency) => (
-    <Menu.Item key={currency} lh={3} px={20}>
-      {currency}
-    </Menu.Item>
-  ));
+const CurrencyMenu = ({ currencies }) => (
+  <Menu trigger="click">
+    <Menu.Target>
+      <Link
+        href={"#"}
+        onClick={(event) => event.preventDefault()}
+        className={classes.currencyLink}
+      >
+        <Center>
+          <Text fz={14} fw={""} >
+            USD
+          </Text>
+          <IconChevronDown size="0.9rem" stroke={1.5} />
+        </Center>
+      </Link>
+    </Menu.Target>
+    <Menu.Dropdown>
+      {currencies.map((currency) => (
+        <Menu.Item key={currency} lh={3} px={20}>
+          {currency}
+        </Menu.Item>
+      ))}
+    </Menu.Dropdown>
+  </Menu>
+);
+
+const HeaderActions = (isExtraSmallSize) => (
+  <Group hiddenFrom="md" gap={isExtraSmallSize ? 1 : 3}>
+    <CurrencyMenu currencies={currencies} />
+    <Button
+      variant="default"
+      className={classes.button}
+      bd={isExtraSmallSize ? 0 : 1}
+    >
+      <IconShoppingBag stroke={1.5} size={isExtraSmallSize ? 20 : 30} />
+    </Button>
+    <Button
+      variant="default"
+      className={classes.button}
+      bd={isExtraSmallSize ? 0 : 1}
+    >
+      <IconUser size={isExtraSmallSize ? 20 : 30} />
+    </Button>
+  </Group>
+);
+
+const DrawerItems = ({ links, handleLinkClick, closeDrawer, activeLink }) => {
+  return links.map((link) => {
+    const menuItems = link.links?.map((item) => (
+      <Menu.Item
+        key={item.link}
+        className={classes.subLink}
+        onClick={() => closeDrawer()} // Close the drawer when a sublink is clicked
+      >
+        <Text size="md" lh={2} px={"sm"} pt={"sm"}>
+          {item.label}
+        </Text>
+        <Divider />
+      </Menu.Item>
+    ));
+
+    return (
+      <Menu key={link.label}>
+        <Link
+          href={"#"}
+          onClick={(event) => {
+            event.preventDefault();
+            handleLinkClick(link.label);
+          }}
+          className={classes.link}
+          style={{ textDecoration: "none" }}
+        >
+          <Text size="md" lh={2} px={"sm"} pt={"sm"}>
+            {link.label}
+            {link.links && <IconChevronDown size="0.9rem" stroke={1.5} />}
+          </Text>
+        </Link>
+        <Divider />
+        {activeLink === link.label && menuItems && <div>{menuItems}</div>}
+      </Menu>
+    );
+  });
+};
+
+export const HeaderNavBar = () => {
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
+    useDisclosure(false);
+
+  const isMediumSize = useMediaQuery("(min-width: 992px)");
+  const isExtraSmallSize = useMediaQuery("(max-width: 576px)");
+
+  const [activeLink, setActiveLink] = useState(null);
+
+  const handleLinkClick = (link) => {
+    setActiveLink(activeLink === link ? null : link);
+  };
 
   return (
     <Box>
@@ -137,41 +175,27 @@ export const HeaderNavBar = () => {
         c={isMediumSize ? "white" : "black"}
       >
         <Group h="100%" justify="space-around" lh={5}>
-          <Burger
-            opened={drawerOpened}
-            onClick={toggleDrawer}
-            hiddenFrom="md"
-            color={"black"}
-            size={20}
-          />
-          <MantineLogo size={isMediumSize ? 50 : isExtraSmallSize ? 20 : 30} />
+          <Group gap={10}>
+            <Burger
+              opened={drawerOpened}
+              onClick={toggleDrawer}
+              hiddenFrom="lg"
+              color={isMediumSize ? "white" : "black"}
+              size={20}
+            />
+            <MantineLogo
+              size={isMediumSize ? 50 : isExtraSmallSize ? 20 : 30}
+            />
+          </Group>
 
           <Group gap={16} visibleFrom="lg">
-            {items}
+            <NavbarItems items={links} />
           </Group>
 
           <Group visibleFrom="md">
-            <Menu
-              trigger="click"
-              transitionProps={{ exitDuration: 0 }}
-              withinPortal
-            >
-              <Menu.Target>
-                <Link
-                  href="#"
-                  className={classes.link}
-                  onClick={(event) => event.preventDefault()}
-                >
-                  <Center>
-                    <Text fz={14} fw={""}>
-                      USD
-                    </Text>
-                    <IconChevronDown size="0.9rem" stroke={1.5} />
-                  </Center>
-                </Link>
-              </Menu.Target>
-              <Menu.Dropdown>{currencyItems}</Menu.Dropdown>
-            </Menu>
+            <Group>
+              <CurrencyMenu currencies={currencies} />
+            </Group>
             <Button variant="default" className={classes.button}>
               <IconShoppingBag stroke={1.5} />
             </Button>
@@ -188,22 +212,7 @@ export const HeaderNavBar = () => {
               <Text size="md">Become a host</Text>
             </Button>
           </Group>
-          <Group hiddenFrom="md" gap={isExtraSmallSize ? 1 : 3}>
-            <Button
-              variant="default"
-              className={classes.button}
-              bd={isExtraSmallSize ? 0 : 1}
-            >
-              <IconShoppingBag stroke={1.5} size={isExtraSmallSize ? 20 : 30} />
-            </Button>
-            <Button
-              variant="default"
-              className={classes.button}
-              bd={isExtraSmallSize ? 0 : 1}
-            >
-              <IconUser size={isExtraSmallSize ? 20 : 30} />
-            </Button>
-          </Group>
+          <HeaderActions isExtraSmallSize={isExtraSmallSize} />
         </Group>
       </Box>
 
@@ -213,14 +222,17 @@ export const HeaderNavBar = () => {
         size="95%"
         padding="md"
         title="Mantine"
-        hiddenFrom="md"
+        hiddenFrom="xl"
         zIndex={100}
         c={"black"}
       >
-        <ScrollArea h={`calc(100vh-${rem(80)}`} mx="-md">
-          <Divider my={"sm"} />
-          <div>{drawerItems}</div>
-        </ScrollArea>
+        <Divider my={"sm"} />
+        <DrawerItems
+          links={links}
+          handleLinkClick={handleLinkClick}
+          closeDrawer={closeDrawer}
+          activeLink={activeLink}
+        />
       </Drawer>
     </Box>
   );

@@ -1,67 +1,70 @@
 .wrapper {
-    /* position: relative; */
-    /* padding-top: rem(180px); */
-    background-image: url(	https://modmixmap.travelerwp.com/wp-content/uploads/2022/04/banner-search-form-min.png);
-    background-size: cover;
-    height: 40vh;
-  }
-  
-  @media (max-width: 768px) {
-    .wrapper {
-      /* padding-top: rem(100px);
+  /* position: relative; */
+  /* padding-top: rem(180px); */
+  background-image: url(https://modmixmap.travelerwp.com/wp-content/uploads/2022/04/banner-search-form-min.png);
+  background-size: cover;
+  height: 42vh;
+  background-color: #11284b;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    /* padding-top: rem(100px);
       padding-bottom: rem(0px); */
-      /* height: 70vh; */
-    }
+    /* height: 70vh; */
   }
-  
-  @media(max-width: 480px) {
-    .wrapper {
-      /* padding-top: rem(100px);
+}
+
+@media(max-width: 480px) {
+  .wrapper {
+    /* padding-top: rem(100px);
       padding-bottom: rem(0px); */
-      /* height: vh; */
-    }
+    /* height: vh; */
   }
-  
-  .inner {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    /* left: 20; */
-    /* bottom: 10; */
-    /* top: 80; */
-    justify-content: end;
-    /* align-items: start; */
-    height: 100%;
-  }
-  
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  top:rem(152px);
+  /* left: rem(140px); */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: end; */
+  /* align-items: start; */
+  /* height: 100%; */
+  /* width: 100%; */
+  gap: var(--mantine-spacing-lg);
+}
+
+.title {
+  /* padding-left: var(--mantine-spacing-xl);
+  padding-right: var(--mantine-spacing-xl); */
+
+  color: var(--mantine-color-white);
+  margin-bottom: var(--mantine-spacing-xs);
+  /* text-align: left; */
+}
+
+@media (max-width: var(--mantine-breakpoint-xs)) {
   .title {
-    padding-left: var(--mantine-spacing-xl);
-    padding-right: var(--mantine-spacing-xl);
-    color: var(--mantine-color-white);
-    margin-bottom: var(--mantine-spacing-xs);
+    font-size: rem(28px);
+  }
+}
+
+
+.highlight {
+  color: var(--mantine-color-primary-4);
+}
+
+.description {
+  color: var(--mantine-color-gray-0);
+  text-align: center;
+}
+
+@media (max-width: var(--mantine-breakpoint-xs)) {
+  .description {
+    font-size: var(--mantine-font-size-md);
     text-align: left;
   }
-  
-  @media (max-width: var(--mantine-breakpoint-xs)) {
-    .title {
-      font-size: rem(28px);
-    }
-  }
-  
-  
-  .highlight {
-    color: var(--mantine-color-primary-4);
-  }
-  
-  .description {
-    color: var(--mantine-color-gray-0);
-    text-align: center;
-  }
-  
-  @media (max-width: var(--mantine-breakpoint-xs)) {
-    .description {
-      font-size: var(--mantine-font-size-md);
-      text-align: left;
-    }
-  }
+}

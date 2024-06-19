@@ -1,0 +1,42 @@
+.card {
+    background-color: var(--mantine-color-body);
+    box-shadow: var(--mantine-shadow-md);
+    position: relative;
+    overflow: hidden; /* Added to prevent overflow */
+  
+    @mixin hover {
+      cursor: pointer;
+      box-shadow: var(--mantine-shadow-xl);
+  
+      & .image {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  .imageWrapper {
+    position: relative;
+    overflow: hidden; /* Ensure the image scales within the card */
+  }
+  
+  .image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    transition: transform 1s ease;
+    min-height: 260px;
+  }
+  
+  .heartIcon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1; /* Ensure it's above other content */
+  }
+  
+  .footer {
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-lg);
+    margin-top: var(--mantine-spacing-md);
+    border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+  }
+  

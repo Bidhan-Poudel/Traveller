@@ -1,5 +1,11 @@
 .button {
-    @media screen and (max-width: 1000px)  {
+    /* @media screen and (max-width: 1000px)  {
         width: 100%;
+    } */
+}
+
+.menu {
+    @media screen and (max-width: 1000px) {
+        margin-top: 2rem;
     }
 }
