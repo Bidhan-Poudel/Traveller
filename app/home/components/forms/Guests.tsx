@@ -1,6 +1,5 @@
-import { Group, Input, Menu, Stack, Text } from "@mantine/core";
-import {IconMinus, IconPlus, IconUser } from "@tabler/icons-react";
-import React from "react";
+import { Group, Input, Menu, Text } from "@mantine/core";
+import { IconMinus, IconPlus, IconUser } from "@tabler/icons-react";
 import classes from "./Guest.module.css";
 import { HotelFormInputProps } from "../../schema";
 
@@ -12,7 +11,14 @@ export const Guests: React.FC<HotelFormInputProps> = ({ form }) => {
   };
 
   const onSubtractButtonClick = (state: "rooms" | "adults" | "children") => {
-    form.setFieldValue(state, form.values[state] - 1);
+    let updatedValue = form.values[state] - 1;
+
+    if ((state === "adults" || state === "rooms") && updatedValue < 1) {
+      updatedValue = 1;
+    } else if (state === "children" && updatedValue < 0) {
+      updatedValue = 0;
+    }
+    form.setFieldValue(state, updatedValue);
   };
 
   const borderBottom = {
@@ -20,9 +26,9 @@ export const Guests: React.FC<HotelFormInputProps> = ({ form }) => {
   };
 
   return (
-    <Group gap={0}  className={classes.menu} w={"100%"}>
+    <Group gap={0} align="center" className={classes.menu} w={"100%"}>
       <IconUser size={24} color="#5E6D77" stroke={1.5} />
-      <Menu >
+      <Menu>
         <Menu.Target>
           <Input
             component="button"
@@ -31,6 +37,7 @@ export const Guests: React.FC<HotelFormInputProps> = ({ form }) => {
             className={classes.button}
             size="xl"
             px={0}
+            flex={1}
           >
             <Text c={"black"} fw={500}>
               Guests
@@ -89,4 +96,3 @@ export const Guests: React.FC<HotelFormInputProps> = ({ form }) => {
     </Group>
   );
 };
-

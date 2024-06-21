@@ -1,6 +1,6 @@
 "use client";
-import { Button, Input, Menu, MenuDropdown } from "@mantine/core";
-import React, { ReactNode, useState } from "react";
+import { Input, Menu,  } from "@mantine/core";
+import  {useState}  from "react";
 import { menu } from "../../mock";
 
 const MenuButtons = () => {

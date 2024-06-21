@@ -13,3 +13,6 @@ export * from './hotel-description/ReviewsSection';
 export * from './hotel-description/UserReview';
 export * from './hotel-description/index';
 export * from './hotel-description/ReviewCard';
+export * from './rooms-description/';
+export * from './carousels';
+export * from './modal';

@@ -11,12 +11,13 @@ import {
 } from "@mantine/core";
 import classes from "./DestinationCard.module.css";
 import { destinations } from "@/app/home/mock/destination";
+import { topDestinationsTitle } from "../../mock";
 
 export const DestinationsCard = () => {
   return (
     <Container size={"xl"} pb={80} px={"sm"}>
       <Title ta="center" my={72} fz={36} mb={48}>
-        Top destinations
+        {topDestinationsTitle}
       </Title>
       <Grid>
         {destinations.map((destination) => (

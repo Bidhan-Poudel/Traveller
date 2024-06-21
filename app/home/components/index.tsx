@@ -20,4 +20,5 @@ export * from  './header/HeaderRight';
 export * from  './recommendation/Recommendation';
 export * from  './forms/SearchAutoComplete';
 export * from  './cards/TourCard';
+export * from './scroll/ScrollToTop';
 // export * from  './layout/Layout';

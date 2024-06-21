@@ -24,9 +24,10 @@ import { links, currencies } from "../config";
 import Link from "next/link";
 import { useState } from "react";
 
-const NavbarItems = ({ items }) => {
-  return items.map((link) => {
-    const subMenuItems = link.links?.map((item) => (
+const NavbarItems = ({ items }:any) => {
+  return items.map((link:any) => {
+    console.log(link);
+    const subMenuItems = link.links?.map((item:any) => (
       <Menu.Item className={classes.subLink} key={item.link}>
         <Text size="md" lh={2} px={"sm"} pt={"sm"}>
           {item.label}
@@ -62,7 +63,6 @@ const NavbarItems = ({ items }) => {
         key={link.label}
         href={link.link}
         className={classes.link}
-        onClick={(event: any) => event.preventDefault()}
       >
         {link.label}
       </Link>
@@ -70,7 +70,7 @@ const NavbarItems = ({ items }) => {
   });
 };
 
-const CurrencyMenu = ({ currencies }) => (
+const CurrencyMenu = ({ currencies }:any) => (
   <Menu trigger="click">
     <Menu.Target>
       <Link
@@ -87,7 +87,7 @@ const CurrencyMenu = ({ currencies }) => (
       </Link>
     </Menu.Target>
     <Menu.Dropdown>
-      {currencies.map((currency) => (
+      {currencies.map((currency:any) => (
         <Menu.Item key={currency} lh={3} px={20}>
           {currency}
         </Menu.Item>
@@ -96,7 +96,7 @@ const CurrencyMenu = ({ currencies }) => (
   </Menu>
 );
 
-const HeaderActions = (isExtraSmallSize) => (
+const HeaderActions = (isExtraSmallSize:any) => (
   <Group hiddenFrom="md" gap={isExtraSmallSize ? 1 : 3}>
     <CurrencyMenu currencies={currencies} />
     <Button
@@ -116,9 +116,9 @@ const HeaderActions = (isExtraSmallSize) => (
   </Group>
 );
 
-const DrawerItems = ({ links, handleLinkClick, closeDrawer, activeLink }) => {
-  return links.map((link) => {
-    const menuItems = link.links?.map((item) => (
+const DrawerItems = ({ links, handleLinkClick, closeDrawer, activeLink }:any) => {
+  return links.map((link:any) => {
+    const menuItems = link.links?.map((item:any) => (
       <Menu.Item
         key={item.link}
         className={classes.subLink}
@@ -163,7 +163,7 @@ export const HeaderNavBar = () => {
 
   const [activeLink, setActiveLink] = useState(null);
 
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (link:any) => {
     setActiveLink(activeLink === link ? null : link);
   };
 

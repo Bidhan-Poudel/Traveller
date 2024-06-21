@@ -29,7 +29,7 @@ export const TourCard = () => {
         {tours.map((tour) => (
           <Grid.Col span={{ xs: 12, sm: 6, md: 6, lg: 4 }} key={tour.id}>
             <Card withBorder p={"sm"} radius="lg" className={classes.card}>
-              <Card.Section mb="sm" pos={"relative"}>
+              <Card.Section mb="sm" pos={"relative"} className={classes.imageWrapper}>
                 <IconHeart className={classes.heartIcon} color="white" />
                 <Image
                   src={tour.image}
@@ -38,16 +38,16 @@ export const TourCard = () => {
                   pos={"relative"}
                   className={classes.image}
                 />
+              </Card.Section>
+
+              <Box  pt={"sm"}>
                 <Avatar
                   src={tour.avatar}
                   radius="lg"
                   pos={"absolute"}
                   right={16}
-                  bottom={-12}
+                  top={"50%"}
                 />
-              </Card.Section>
-
-              <Box  pt={"sm"}>
                 <Group gap={2}>
                   <IconMapPin
                     style={{ width: rem(20), height: rem(20) }}

@@ -1,7 +1,7 @@
 import { Box, Title } from "@mantine/core";
 import React from "react";
 import { hotelDetail } from "../../mock";
-import RoomCardsContainer from "./RoomCardsContainer";
+import { RoomCardsContainer } from "./RoomCardsContainer";
 
 export const RoomsContainer = () => {
   const hotel = hotelDetail[0];

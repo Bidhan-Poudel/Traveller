@@ -11,7 +11,7 @@ export const DatePicker: React.FC<HotelFormInputProps> = ({ form }) => {
   const isSmall = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Group justify="start" className={classes.group}>
+    <Group className={classes.group}>
       <IconCalendar size={24} color="#5E6D77" stroke={1.5} />
       <DatePickerInput
         label="Check In and Out Date"
@@ -21,6 +21,7 @@ export const DatePicker: React.FC<HotelFormInputProps> = ({ form }) => {
         size="md"
         radius={"md"}
         type="range"
+        flex={1}
         numberOfColumns={isSmall ? 1 : 2}
         className={classes.datePicker}
         minDate={new Date()}

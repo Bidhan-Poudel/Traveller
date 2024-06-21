@@ -7,11 +7,11 @@ import HotelDetailRight from "./HotelDetailRight";
 
 export const GridContainer = () => {
   return (
-    <Grid>
-      <Grid.Col span={{ md: 8, sm: 12 }}>
+    <Grid gutter={"lg"}>
+      <Grid.Col span={{ md: 8, base: 12 }}>
         <HotelDetailLeft />
       </Grid.Col>
-      <Grid.Col span={{ md: 4, sm: 0 }}>
+      <Grid.Col span={{ md: 4, base: 0 }} >
         <HotelDetailRight />
       </Grid.Col>
     </Grid>

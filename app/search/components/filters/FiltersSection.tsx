@@ -10,13 +10,13 @@ import {
 import React, { useState } from "react";
 import MenuButtons from "../custom-components/MenuButtons";
 import { HotelCardContainer } from "@/app/home/components/cards";
-import {
-  IconGripHorizontal,
-  IconGripVertical,
-} from "@tabler/icons-react";
+import { IconGripHorizontal, IconGripVertical } from "@tabler/icons-react";
+import { useMediaQuery } from "@mantine/hooks";
 
 export const FiltersSection = () => {
   const [view, setView] = useState("horizontal");
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleViewChange = (value: string) => {
     setView(value);
@@ -37,17 +37,18 @@ export const FiltersSection = () => {
             <Group gap={"xs"}>
               <Text>Sort By:</Text>
               <MenuButtons />
-              {view === "horizontal" ? (
-                <IconGripVertical
-                  size={20}
-                  onClick={() => handleViewChange("vertical")}
-                />
-              ) : (
-                <IconGripHorizontal
-                  size={20}
-                  onClick={() => handleViewChange("horizontal")}
-                />
-              )}
+              {!isMobile &&
+                (view === "horizontal" ? (
+                  <IconGripVertical
+                    size={20}
+                    onClick={() => handleViewChange("vertical")}
+                  />
+                ) : (
+                  <IconGripHorizontal
+                    size={20}
+                    onClick={() => handleViewChange("horizontal")}
+                  />
+                ))}
             </Group>
           </Group>
         </Group>

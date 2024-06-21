@@ -15,7 +15,7 @@ import React from "react";
 import CustomBotton from "../buttons/Buttons";
 import classes from "./RoomCard.module.css";
 
-export const RoomCard: React.FC<{ room: Object }> = ({ room }) => {
+export const RoomCard: React.FC<{ room: any, onViewRoom: (room: any) => void }> = ({ room, onViewRoom }) => {
   return (
     <Card
       shadow="xs"
@@ -104,7 +104,7 @@ export const RoomCard: React.FC<{ room: Object }> = ({ room }) => {
                 /night
               </Text>
             </Group>
-            <CustomBotton>View Room</CustomBotton>
+            <CustomBotton onClick={()=>onViewRoom(room)}>View Room</CustomBotton>
           </Box>
         </Grid.Col>
       </Grid>

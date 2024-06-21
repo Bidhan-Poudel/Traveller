@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, HeaderNavBar } from "./components";
+import { Footer, HeaderNavBar, ScrollToTop } from "./components";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -7,6 +7,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <HeaderNavBar />
       {children}
       <Footer />
+      <ScrollToTop />
     </>
   );
 };

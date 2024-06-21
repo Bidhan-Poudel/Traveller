@@ -23,6 +23,7 @@ export const SearchAutoComplete: React.FC<SearchAutoCompleteProps> = ({
         value={form.values.location}
         onChange={(value) => form.setFieldValue("location", value)}
         inputSize="xl"
+        flex={1}
       />
     </Group>
   );

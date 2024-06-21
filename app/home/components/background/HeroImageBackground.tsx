@@ -2,6 +2,7 @@
 import { Title, Text, Container, Button, Overlay } from "@mantine/core";
 import classes from "./HeroImage.module.css";
 import { useMediaQuery } from "@mantine/hooks";
+import { heroImageText, heroImageTitle } from "../../mock";
 
 export const HeroImageBackground = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -13,15 +14,14 @@ export const HeroImageBackground = () => {
           fz={isMobile ? "40" : "64"}
           fw={"bold"}
         >
-          Let the journey begin
+          {heroImageTitle}
         </Title>
         <Container>
           <Text size={isMobile ? "lg" : "xl"} className={classes.description}>
-            Get the best prices on 2,000,000+ properties, worldwide
+            {heroImageText}
           </Text>
         </Container>
       </div>
     </div>
   );
 };
-

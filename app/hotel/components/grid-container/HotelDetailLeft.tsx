@@ -9,20 +9,24 @@ import {
   RoomsContainer,
 } from "../hotel-description";
 
+const List = [
+  <RatingSection />,
+  <HotelDescription />,
+  <HotelFacilites />,
+  <HotelAmenities />,
+  <RoomsContainer />,
+  <ReviewsSection />,
+];
+
 const HotelDetailLeft = () => {
   return (
     <>
-      <RatingSection />
-      <Divider my={20} />
-      <HotelDescription />
-      <Divider my={20} />
-      <HotelFacilites />
-      <Divider my={20} />
-      <HotelAmenities />
-      <Divider my={20} />
-      <RoomsContainer />
-      <Divider my={20} />
-      <ReviewsSection />
+      {List.map((item, index) => (
+        <div key={index}>
+          {item}
+          <Divider my={10} />
+        </div>
+      ))}
     </>
   );
 };

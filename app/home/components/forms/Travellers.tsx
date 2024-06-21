@@ -1,4 +1,4 @@
-import { Button, Group, Input, Menu, Text } from "@mantine/core";
+import { Group, Input, Menu, Text } from "@mantine/core";
 import { IconMinus, IconPlus, IconUserFilled } from "@tabler/icons-react";
 import React from "react";
 import classes from "./Travellers.module.css";
@@ -13,10 +13,21 @@ export const Travellers: React.FC<TourFormInputProps> = ({ form }) => {
   };
 
   const onSubtractButtonClick = (state: "noOfTravellers") => {
-    form.setFieldValue(state, form.values[state] - 1);
+    let updatedValue = form.values[state] - 1;
+
+    if (updatedValue < 1) {
+      updatedValue = 1;
+    }
+    form.setFieldValue(state, updatedValue);
   };
   return (
-    <Group gap={0} flex={"start"}>
+    <Group
+      gap={0}
+      flex={"start"}
+      // align="center"
+      className={classes.menu}
+      w={"100%"}
+    >
       <IconUserFilled size={24} color="#5E6D77" stroke={1.5} />
       <Menu>
         <Menu.Target>
@@ -27,6 +38,7 @@ export const Travellers: React.FC<TourFormInputProps> = ({ form }) => {
             className={classes.button}
             size="xl"
             px={0}
+            flex={1}
           >
             <Text c={"black"} fw={500}>
               No. Of Travellers
@@ -40,10 +52,10 @@ export const Travellers: React.FC<TourFormInputProps> = ({ form }) => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "2fr 1fr ",
-              gap: "8px",
+              gridTemplateColumns: "1fr 1fr ",
               alignItems: "center",
               fontSize: "24px",
+              gap: "10px",
             }}
           >
             <Text>No. Of Travellers</Text>
