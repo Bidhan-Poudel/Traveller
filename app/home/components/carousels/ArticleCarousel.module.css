@@ -12,7 +12,7 @@
     opacity: 0;
 }
 
-.carouselIndicator {
+/* .carouselIndicator {
     color: blue;
     width: rem(4px);
     height: rem(4px);
@@ -21,4 +21,4 @@
     &[data-active] {
         width: rem(16px);
     }
-}
+} */

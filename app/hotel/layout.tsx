@@ -1,14 +1,14 @@
-import React, { ReactNode } from 'react'
-import { Footer, HeaderNavBar } from '../home/components'
+import React, { ReactNode } from "react";
+import { Footer, HeaderNavBar } from "../shared";
 
-const Layout = ({children}:{children:ReactNode}) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
-        <HeaderNavBar/>
-        {children}
-        <Footer/>
+      <HeaderNavBar />
+      {children}
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

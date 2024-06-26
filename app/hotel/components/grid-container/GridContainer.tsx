@@ -11,7 +11,7 @@ export const GridContainer = () => {
       <Grid.Col span={{ md: 8, base: 12 }}>
         <HotelDetailLeft />
       </Grid.Col>
-      <Grid.Col span={{ md: 4, base: 0 }} >
+      <Grid.Col span={{ md: 4, base: 12 }} >
         <HotelDetailRight />
       </Grid.Col>
     </Grid>

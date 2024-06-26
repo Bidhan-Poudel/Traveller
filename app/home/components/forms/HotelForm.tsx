@@ -46,7 +46,7 @@ export const HotelForm = () => {
           <Grid.Col
             span={{ md: 3, xs: 12 }}
             px={{ base: 16, md: 32 }}
-            pt={{ base: "lg", md: 16 }}
+            pt={{ base: "lg", md: 20 }}
             pb={{ base: "", md: 16 }}
           >
             <SearchAutoComplete form={hotelForm} />
@@ -54,7 +54,8 @@ export const HotelForm = () => {
           <Grid.Col
             span={{ md: 4, xs: 12 }}
             // px={{ base: 16, md: "xl" }}
-            py={{ base: "xs", md: 16 }}
+            pt={{ base: "xs", md: 20 }}
+            pb={{ base: "xs", md: 16 }}
             className={classes.datePicker}
           >
             <DatePicker form={hotelForm} />
@@ -62,13 +63,14 @@ export const HotelForm = () => {
           <Grid.Col
             span={{ md: 3, xs: 12 }}
             px={{ base: 16, md: 0 }}
-            py={{ base: "xs", md: 16 }}
+            pt={{ base: "xs", md: 20 }}
+            pb={{ base: "xs", md: 16 }}
           >
             <Guests form={hotelForm} />
           </Grid.Col>
           <Grid.Col
             span={{ md: 2, xs: 12 }}
-            pt={{ base: "xs", md: 16 }}
+            pt={{ base: "xs", md: 20 }}
             pb={{ base: "0", md: "16" }}
             px={{ base: 7, md: 16 }}
           >

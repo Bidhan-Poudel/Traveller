@@ -49,7 +49,7 @@ export const HotelCard = ({
       <Box pt={"lg"}>
       <Avatar
             src={hotel.avatar}
-            radius="lg"
+            radius="xl"
             pos={"absolute"}
             right={16}
             top={size===200?"40%":"50%"}

@@ -34,7 +34,7 @@ export const TourForm = () => {
           <Grid.Col
             span={{ md: 5, xs: 12 }}
             px={{ base: 16, md: 32 }}
-            pt={{ base: "lg", md: 16 }}
+            pt={{ base: "lg", md: 20 }}
             pb={{ base: "", md: 16 }}
           >
             <SearchAutoComplete form={tourForm} />
@@ -42,13 +42,14 @@ export const TourForm = () => {
           <Grid.Col
             span={{ md: 4, xs: 12 }}
             px={{ base: 16, md: 32 }}
-            py={{ base: "xs", md: 16 }}
+            pt={{ base: "xs", md: 20 }}
+            pb={{ base: "xs", md: 16 }}
           >
             <Travellers form={tourForm} />
           </Grid.Col>
           <Grid.Col
             span={{ md: 1, xs: 12 }}
-            pt={{ base: "xs", md: 16 }}
+            pt={{ base: "xs", md: 20 }}
             pb={{ base: "0", md: "16" }}
           >
             <Button

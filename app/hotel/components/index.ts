@@ -16,3 +16,4 @@ export * from './hotel-description/ReviewCard';
 export * from './rooms-description/';
 export * from './carousels';
 export * from './modal';
+export * from '../../shared/components/image-background/BackgroundImage';
